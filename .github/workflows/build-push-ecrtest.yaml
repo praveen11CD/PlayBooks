@@ -12,6 +12,16 @@ jobs:
   build:
     runs-on: warp-ubuntu-latest-x64-32x-spot
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+      # Add your build and test steps here
+      - name: Create snapshot
+        uses: WarpBuilds/snapshot-save@v1
+        with:
+          alias: "unique-snapshot-alias"
+          fail-on-error: true
+          wait-timeout-minutes: 60
+   
       # - name: Checkout repository
       #   uses: actions/checkout@v3
 
